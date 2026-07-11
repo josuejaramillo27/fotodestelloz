@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto Destelloz | Alquiler de Cabinas y Plataformas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
 
+    <header class="glass-header">
+        <h1>✨ FOTO DESTELLOZ ✨</h1>
+        <p>Cabinas y Plataformas Giratorias para eventos inolvidables</p>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Nuestros Paquetes (Alquiler de 3 horas)</h2>
+        <div class="services-grid">
+            <div class="glass-card">
+                <div class="icon">📸</div>
+                <h3>Cabina Vogue</h3>
+                <p>Imagina que tus fotos se vean de revista. Ideal para hacer de tu evento la portada perfecta.</p>
+                <button class="btn-colorido" onclick="abrirReserva('Cabina Vogue')">🗓️ Ver Disponibilidad</button>
+            </div>
+            <div class="glass-card">
+                <div class="icon">🪞</div>
+                <h3>Cabina Espejada</h3>
+                <p>Captura la magia de tu celebración. Sácate fotos, juega con efectos y llévate recuerdos increíbles.</p>
+                <button class="btn-colorido" onclick="abrirReserva('Cabina Espejada')">🗓️ Ver Disponibilidad</button>
+            </div>
+            <div class="glass-card">
+                <div class="icon">📱</div>
+                <h3>Cabina Instagram</h3>
+                <p>Ideal para captar los mejores momentos de tu fiesta o activación de marca.</p>
+                <button class="btn-colorido" onclick="abrirReserva('Cabina Instagram')">🗓️ Ver Disponibilidad</button>
+            </div>
+            <div class="glass-card">
+                <div class="icon">🎈</div>
+                <h3>Cabina Inflable</h3>
+                <p>Diversión a lo grande, un espacio único para disfrutar con tus amistades o clientes.</p>
+                <button class="btn-colorido" onclick="abrirReserva('Cabina Inflable')">🗓️ Ver Disponibilidad</button>
+            </div>
+            <div class="glass-card">
+                <div class="icon">🎥</div>
+                <h3>Plataforma 180°</h3>
+                <p>Haz que tus videos tomen un giro diferente y espectacular para tus invitados.</p>
+                <button class="btn-colorido" onclick="abrirReserva('Plataforma 180°')">🗓️ Ver Disponibilidad</button>
+            </div>
+            <div class="glass-card">
+                <div class="icon">🌀</div>
+                <h3>Plataforma 360°</h3>
+                <p>Full diversión con tus videos en 360°. La sensación definitiva para tu evento.</p>
+                <button class="btn-colorido" onclick="abrirReserva('Plataforma 360°')">🗓️ Ver Disponibilidad</button>
+            </div>
+            <div class="glass-card">
+                <div class="icon">🖼️</div>
+                <h3>Panel Polaroid</h3>
+                <p>Una estación fotográfica hermosa para ti y tus invitados, decorada para la ocasión.</p>
+                <button class="btn-colorido" onclick="abrirReserva('Panel Polaroid')">🗓️ Ver Disponibilidad</button>
+            </div>
+            <div class="glass-card">
+                <div class="icon">☎️</div>
+                <h3>Teléfono Vintage</h3>
+                <p>Que ningún invitado se vaya sin dejar un mensaje de voz en este hermoso teléfono clásico.</p>
+                <button class="btn-colorido" onclick="abrirReserva('Teléfono Vintage')">🗓️ Ver Disponibilidad</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="reserva-modal" class="modal-overlay">
+        <div class="glass-modal">
+            <span class="close-btn" onclick="cerrarReserva()">❌</span>
+            <h2 id="modal-title">Reservar Servicio</h2>
+            <form id="reserva-form">
+                <input type="hidden" id="servicio-seleccionado">
+                
+                <label>👤 Tu Nombre:</label>
+                <input type="text" id="nombre" required placeholder="Ej. Valeria">
+
+                <label>🎉 Tipo de Evento:</label>
+                <select id="tipo-evento" required onchange="verificarCorporativo()">
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Quinceañero">Quinceañero</option>
+                    <option value="Boda">Boda / Matrimonio</option>
+                    <option value="Cumpleaños">Cumpleaños</option>
+                    <option value="Corporativo">Evento Corporativo</option>
+                    <option value="Otro">Otro</option>
+                </select>
+
+                <div id="opcion-corporativa" style="display: none;">
+                    <label>⏱️ Opciones Adicionales:</label>
+                    <input type="text" id="horas-extra" placeholder="Ej. Deseo 5 horas en total, branding de marca...">
+                </div>
+
+                <label>📍 Local / Dirección:</label>
+                <input type="text" id="local" required placeholder="Lugar del evento">
+
+                <label>🗓️ Fecha del Evento:</label>
+                <input type="text" id="fecha-calendario" required placeholder="Selecciona una fecha disponible">
+
+                <label>⏰ Hora de Inicio:</label>
+                <input type="time" id="hora" required>
+
+                <button type="submit" class="btn-colorido btn-wsp">📲 Reservar por WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
