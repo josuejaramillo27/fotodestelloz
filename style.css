@@ -5,35 +5,21 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* 1. EL NUEVO FONDO GRIS BAJITO ARMONIOSO */
 body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333333;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Efecto Glassmorphism Base */
-.glass-header, .glass-card, .glass-modal {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-
-.glass-header {
+/* 2. TÍTULO PRINCIPAL */
+.section-title {
     text-align: center;
-    padding: 2rem;
     margin-bottom: 2rem;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-}
-
-.glass-header h1 {
-    font-size: 2.5rem;
-    background: linear-gradient(to right, #f8b500, #fceabb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #111111;
 }
 
 .container {
@@ -43,20 +29,19 @@ body {
     padding-bottom: 3rem;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-}
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
-.glass-card {
+/* 3. GLASSMORPHISM EN TEMA CLARO */
+.glass-card, .glass-modal {
+    background: rgba(255, 255, 255, 0.65); /* Cristal claro */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08); /* Sombra difuminada muy suave */
     border-radius: 20px;
     padding: 2rem;
     text-align: center;
@@ -65,24 +50,46 @@ body {
 
 .glass-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 1);
 }
 
 .glass-card .icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: #e5b000; /* Iconos en dorado para combinar con el logo */
 }
 
+/* 4. COLORES DE TEXTO DENTRO DE LAS TARJETAS */
 .glass-card h3 {
     margin-bottom: 0.5rem;
-    color: #fceabb;
+    color: #111111; /* Títulos en negro elegante */
+    font-weight: 700;
 }
 
 .glass-card p {
     font-size: 0.9rem;
-    color: #dcdcdc;
+    color: #444444; /* Letras grises oscuras para fácil lectura */
     margin-bottom: 1.5rem;
     min-height: 60px;
+}
+
+/* Corrección forzada para las listas que estaban en color claro en tu HTML */
+.inclusiones p strong {
+    color: #111111 !important;
+}
+.inclusiones ul {
+    color: #444444 !important;
+}
+
+/* Modal Estilos (Mantenemos la estructura pero textos oscuros) */
+#modal-title {
+    color: #111111;
+    margin-bottom: 1rem;
+}
+#reserva-form label {
+    font-size: 0.9rem;
+    color: #111111;
+    font-weight: 600;
 }
 
 /* Botones Coloridos Redondeados */
