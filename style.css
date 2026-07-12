@@ -191,3 +191,25 @@ body {
     background: linear-gradient(45deg, #38ef7d, #11998e);
     box-shadow: 0 6px 20px rgba(56, 239, 125, 0.6);
 }
+/* ESTILOS PARA LOS BOTONES DE REDES SOCIALES */
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #111111; /* Fondo negro elegante */
+    color: #e5b000; /* Icono color dorado */
+    border-radius: 50%;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.social-btn:hover {
+    transform: translateY(-8px); /* Animación de saltito hacia arriba */
+    background: #e5b000; /* Al pasar el mouse se vuelve dorado */
+    color: #111111; /* Y el icono se vuelve negro */
+    box-shadow: 0 10px 25px rgba(229, 176, 0, 0.4); /* Resplandor dorado */
+}
